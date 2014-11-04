@@ -4,24 +4,30 @@ player prisoner1;
 void setup() {
   background(100, 150, 255);
   size(300, 400);
-  prisoner1 = new player(color(120, 120, 120), float 30.0, float 30.0, float 0.0, float rtrue);
+  prisoner1 = new player(color(120, 120, 120),  30.0,  30.0,  0.0,  rtrue);
   //prisoner2
 }
 
 void draw() {
   background(30);
-  prisoner1.control()
+  prisoner1.control();
     prisoner1.display();
   }
+void keyPressed() {
+  prisoner1.press();  
+}
+void keyReleased() {
+  prisoner1.release();
+}
 
-  class player() {
+  class player {
     color skin;
     float xpos;
     float ypos;
-    player(color skin);
+    color skin;
     float tempXpos;
     float tempYpos;
-    float tempXspeed
+    float tempXspeed;
     boolean tempControl;
     
       //colour, x,y, speed, control?)
@@ -61,11 +67,11 @@ void draw() {
           if (!up && playerYmove < ground-80) {
             playerYmove++;
           }
-        }  
-
+        }
+      
 
         //controls
-        void keyPressed() {
+        void press() {
           if (key =='d') {
             //playerXmove--;
             right = true;
@@ -85,7 +91,7 @@ void draw() {
         }
 
 
-        void keyReleased() {
+        void release() {
           if (key =='d') {
             //playerXmove--;
             right = false;
@@ -104,6 +110,7 @@ void draw() {
             down = false;
           }
         }
+      }
 
 
 
